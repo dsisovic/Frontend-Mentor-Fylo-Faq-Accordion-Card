@@ -1,0 +1,105 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 12px;
+  font-family: "Kumbh Sans", sans-serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background: linear-gradient(#af67e9, #6565e7);
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  min-height: 540px;
+  width: 80%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+  -ms-grid-columns: (1fr)[2];
+      grid-template: 1fr/repeat(2, 1fr);
+  position: relative;
+}
+
+.card__image {
+  background-image: url("../images/illustration-woman-online-desktop.svg"), url("../images/bg-pattern-desktop.svg");
+  background-position: -80px 70px, -500px -270px;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 480px, 900px;
+}
+
+.card__box {
+  position: absolute;
+  top: 42%;
+  left: -92px;
+}
+
+.card__content {
+  padding: 6em 10em 6em 1em;
+  font-weight: bold;
+}
+
+.card__content h1 {
+  font-size: 2.1rem;
+}
+
+.card__accordion {
+  margin-top: 1em;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+.card__accordion:first-child {
+  margin-top: 3em;
+}
+
+.card__accordion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.card__accordion-header--active {
+  font-weight: 700;
+}
+
+.card__accordion-content {
+  margin-top: 1em;
+  font-size: 0.7rem;
+  font-weight: 100;
+  overflow: hidden;
+}
+
+.card__accordion-content p {
+  padding-bottom: 1em;
+}
+
+.card__accordion-content--hidden {
+  height: 0;
+}
+/*# sourceMappingURL=index.css.map */
