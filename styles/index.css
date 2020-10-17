@@ -10,7 +10,7 @@ body {
   font-family: "Kumbh Sans", sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
   background: linear-gradient(#af67e9, #6565e7);
-  height: 100vh;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,6 +45,10 @@ body {
   background-size: 480px, 900px;
 }
 
+.card__mobile-box, .card__mobile-illustration {
+  display: none;
+}
+
 .card__box {
   position: absolute;
   top: 42%;
@@ -58,6 +62,7 @@ body {
 
 .card__content h1 {
   font-size: 2.1rem;
+  margin-bottom: 1em;
 }
 
 .card__accordion {
@@ -65,8 +70,8 @@ body {
   border-bottom: 1px solid #e7e7e9;
 }
 
-.card__accordion:first-child {
-  margin-top: 3em;
+.card__accordion-icon {
+  margin-left: 15px;
 }
 
 .card__accordion-header {
@@ -93,6 +98,7 @@ body {
   font-size: 0.7rem;
   font-weight: 100;
   overflow: hidden;
+  margin-right: 15px;
 }
 
 .card__accordion-content p {
@@ -101,5 +107,58 @@ body {
 
 .card__accordion-content--hidden {
   height: 0;
+}
+
+@media only screen and (max-width: 1040px) {
+  .card__image {
+    background-position: left center, left center;
+    background-size: 100%, 100%;
+  }
+  .card__box {
+    display: none;
+  }
+  .card__content {
+    padding-right: 2em;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .card {
+    margin-top: 10em;
+    -ms-grid-rows: 100px 1fr;
+    -ms-grid-columns: 1fr;
+        grid-template: 100px 1fr / 1fr;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .card__box {
+    display: none;
+  }
+  .card__mobile-box, .card__mobile-illustration {
+    display: block;
+    position: absolute;
+  }
+  .card__mobile-box {
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .card__mobile-illustration {
+    top: -110px;
+    left: 40%;
+    -webkit-transform: translateX(-40%);
+            transform: translateX(-40%);
+  }
+  .card__image {
+    background-image: none;
+  }
+  .card__content {
+    padding: 3em;
+  }
+  .card__content h1 {
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -7,33 +7,35 @@ export class BusinessLogic {
 
     initializeAPP() {
         const accordionContent = this.getAccordionContent();
-        const cardContentElement = ui.getElements('.card__content', false);
-        const faqElement = cardContentElement.children[0];
-
+        const cardElement = ui.getElements('.card', false);
+        const headerElement = cardElement.children[0];
         const newDiv = ui.createNewElement('div');
+
         ui.createAttribute(newDiv, 'data-main', 'main');
+        ui.createAttribute(newDiv, 'class', 'card__content');
         newDiv.innerHTML = accordionContent;
 
-        cardContentElement.insertBefore(newDiv, faqElement.nextSibling);
+        cardElement.insertBefore(newDiv, headerElement.nextSibling);
         this.setClickEventListener();
     }
 
     getAccordionContent() {
-        return accordionData.getAccordionContent()
+        const mainAccordionContent = accordionData.getAccordionContent()
             .map(accordionItem => {
                 const { headerName, accordionContent, id } = accordionItem;
                 return `
                     <div class="card__accordion">
                         <div class="card__accordion-header" data-id="${id}">
                             <p>${headerName}</p>
-                            <img src="./images/icon-arrow-down.svg" alt="arrow">
+                            <img src="./images/icon-arrow-down.svg" alt="arrow" class="card__accordion-icon">
                         </div>
                         <div class="card__accordion-content card__accordion-content--hidden">
                             <p>${accordionContent}</p>
                         </div>
                     </div>`;
-            })
-            .join('');
+            });
+
+        return ['<h1>FAQ</h1>', ...mainAccordionContent].join('');
     }
 
     setClickEventListener() {

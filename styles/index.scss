@@ -10,7 +10,7 @@ body {
     font-size: 12px;
     font-family: "Kumbh Sans", sans-serif;
     background: linear-gradient($background-violet, $background-blue);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,6 +35,11 @@ body {
         background-size: 480px, 900px;
     }
 
+    &__mobile-box,
+    &__mobile-illustration {
+        display: none;
+    }
+
     &__box {
         position: absolute;
         top: 42%;
@@ -47,6 +52,7 @@ body {
 
         h1 {
             font-size: 2.1rem;
+            margin-bottom: 1em;
         }
     }
 
@@ -54,8 +60,8 @@ body {
         margin-top: 1em;
         border-bottom: 1px solid $divider-line;
 
-        &:first-child {
-            margin-top: 3em;
+        &-icon {
+            margin-left: 15px;
         }
 
         &-header {
@@ -76,6 +82,7 @@ body {
             font-size: 0.7rem;
             font-weight: 100;
             overflow: hidden;
+            margin-right: 15px;
 
             p {
                 padding-bottom: 1em;
@@ -83,6 +90,65 @@ body {
 
             &--hidden {
                 height: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $media-query-md) {
+    .card {
+        &__image {
+            background-position: left center, left center;
+            background-size: 100%, 100%;
+        }
+
+        &__box {
+            display: none;
+        }
+
+        &__content {
+            padding-right: 2em;
+        }
+    }
+}
+
+@media only screen and (max-width: $media-query-sm) {
+    .card {
+        margin-top: 10em;
+        grid-template: 100px 1fr / 1fr;
+        align-items: start;
+
+        &__box {
+            display: none;
+        }
+
+        &__mobile-box,
+        &__mobile-illustration {
+            display: block;
+            position: absolute;
+        }
+
+        &__mobile-box {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &__mobile-illustration {
+            top: -110px;
+            left: 40%;
+            transform: translateX(-40%);
+        }
+
+        &__image {
+            background-image: none;
+        }
+
+        &__content {
+            padding: 3em;
+
+            h1 {
+                text-align: center;
             }
         }
     }
