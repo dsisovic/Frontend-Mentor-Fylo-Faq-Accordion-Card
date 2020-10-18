@@ -1,4 +1,4 @@
-export class AccordionData {
+class AccordionData {
 
     constructor() { }
 

@@ -1,7 +1,6 @@
 import accordionData from './accordion-data.js';
 import ui from './ui.js';
-
-export class BusinessLogic {
+class BusinessLogic {
 
     constructor() { }
 
