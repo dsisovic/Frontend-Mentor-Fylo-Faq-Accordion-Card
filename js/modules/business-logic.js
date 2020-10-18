@@ -14,7 +14,7 @@ class BusinessLogic {
         ui.createAttribute(newDiv, 'class', 'card__content');
         newDiv.innerHTML = accordionContent;
 
-        cardElement.insertBefore(newDiv, headerElement.nextSibling);
+        cardElement.insertBefore(newDiv, headerElement.nextElementSibling);
         this.setClickEventListener();
     }
 
@@ -55,16 +55,20 @@ class BusinessLogic {
 
         if (targetHasHeaderClass || parentHasHeaderClass) {
             const datasetId = targetHasHeaderClass ? eventTarget.dataset.id : eventTarget.parentElement.dataset.id
-
             const headerElement = ui.getElements(`[data-id='${datasetId}']`, false);
+
             headerElement.classList.toggle('card__accordion-header--active');
 
             const activeHeaderState = this.hasClass(headerElement, 'active');
-            const classFunction = activeHeaderState ? 'remove' : 'add';
-            const rotateStyle = activeHeaderState ? 'rotate(180deg)' : 'rotate(0deg)';
 
-            headerElement.children[1].style.transform = rotateStyle;
-            headerElement.nextSibling.nextSibling.classList[classFunction]('card__accordion-content--hidden');
+            if (activeHeaderState) {
+                headerElement.children[1].style.transform = 'rotate(180deg)';
+                headerElement.nextElementSibling.classList.remove('card__accordion-content--hidden');
+            } else {
+                headerElement.children[1].style.transform = 'rotate(0deg)';
+                headerElement.nextElementSibling.classList.add('card__accordion-content--hidden');
+            }
+
         }
     }
 }
