@@ -6,8 +6,12 @@
     padding: 0;
 }
 
+html,
 body {
-    font-size: 12px;
+    font-size: 16px;
+}
+
+body {
     font-family: "Kumbh Sans", sans-serif;
     background: linear-gradient($background-violet, $background-blue);
     min-height: 100vh;
@@ -47,7 +51,8 @@ body {
     }
 
     &__content {
-        padding: 6em 10em 6em 1em;
+        padding: 6em;
+        padding-left: 1em;
         font-weight: bold;
 
         h1 {
@@ -68,7 +73,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             font-weight: 100;
             cursor: pointer;
 
@@ -79,7 +84,7 @@ body {
 
         &-content {
             margin-top: 1em;
-            font-size: 0.7rem;
+            font-size: 1rem;
             font-weight: 100;
             overflow: hidden;
             margin-right: 15px;
@@ -106,6 +111,11 @@ body {
             display: none;
         }
 
+        &__image {
+            background-image: url("../images/illustration-woman-online-mobile.svg"),
+                url("../images/bg-pattern-desktop.svg");
+        }
+
         &__content {
             padding-right: 2em;
         }
@@ -113,6 +123,11 @@ body {
 }
 
 @media only screen and (max-width: $media-query-sm) {
+    html,
+    body {
+        font-size: 12px;
+    }
+
     .card {
         margin-top: 10em;
         grid-template: 100px 1fr / 1fr;
@@ -136,8 +151,8 @@ body {
 
         &__mobile-illustration {
             top: -110px;
-            left: 40%;
-            transform: translateX(-40%);
+            left: 50%;
+            transform: translateX(-55%);
         }
 
         &__image {
